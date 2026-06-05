@@ -148,8 +148,9 @@ input {
     border:1px solid #500000;
     border-radius:12px;
     font-family: "cinzel", serif;
-    height:55px;
+    height:60px;
     font-size:18px;
+    flex:1;
 }
 
 input:focus{
@@ -159,14 +160,26 @@ input:focus{
 }
 
 button{
-    background-color:var(--blood-red);
-    color:white;
+    width:60px;
+    height:60px;
     border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#8b0000,#d10000);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 10px rgba(139,0,0,0.5),0 0 25px rgba(139,0,0,0.3);
+    transition:0.3s;
 }
 
 button:hover{
-    background-color:var(--blood-red-hover);
-    box-shadow: 0 0 15px rgba(179,0,0,0.5);
+    transform:scale(1.1);
+    background:linear-gradient(135deg, #b30000, #ff0000);
+     box-shadow:0 0 25px rgba(179,0,0,0.8),0 0 50px rgba(179,0,0,0.4);
 }
 
 .task-list li{
@@ -182,6 +195,9 @@ button:hover{
 form{
     width:80%;
     margin-top:30px;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 .s-container::before{
     content:"CONTRACT BOARD";
@@ -196,7 +212,7 @@ form{
 #numbers {
     width:120px;
     height:120px;
-    background:radial-gradient(circle, rgba(139,0,0,0.4) 80%);
+    background: radial-gradient(circle,rgba(139,0,0,0.5) 0%,rgba(30,0,0,0.9) 100%);
     border-radius:50%;
     border:2px solid #8b0000;
     box-shadow:0 0 10px #8b0000, 0 0 30px rgba(139,0,0,0.4);
