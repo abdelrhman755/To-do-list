@@ -1,0 +1,171 @@
+:root{
+    --bg: #050505;
+    --container: #111111;
+    --card: #1a1a1a;
+    --blood-red: #8b0000;
+    --blood-red-hover: #b30000;
+    --text: #f0f0f0;
+    --text-muted: #8a8a8a;
+    --border: #2a2a2a;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(-45deg, #000000, #120000, #2b0000,#000000);
+    background-size: 400% 400%;
+    animation: bloodflow 12s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: "cinzel", serif;
+}
+
+@keyframes bloodflow {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100% {
+        background-position:0% 50%;
+    }
+
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(139,0,0,0.4) 0%, transparent) 70%;
+    top:-200px;
+    left:-200px;
+    filter:blur(120px);
+    animation:moveblood 15s infinite alternate;
+}
+
+@keyframes moveblood {
+    from{
+        transform:translate(0,0);
+    }
+    to {
+        transform:translate(300px,200px);
+    }
+}
+
+.container{
+    background-color: var(--container);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 25px rgba(139,0,0,0.15);
+    background:linear-gradient(135deg, rgba(140,0,0,0.08), rgba(0,0,0,0.9));
+    border-radius:20px;
+    padding:40px;
+}
+
+.s-container{
+    background-color: var(--card);
+}
+
+h1{
+    color:#b30000;
+    font-size:3rem;
+    letter-spacing:4px;
+    text-shadow: 0 0 10px rgba(175,0,0,0.8), 0 0 30px rgba(135,0,0,0.6), 0 0 60px rgba(135,0,0,0.4);
+}
+
+.details p{
+    color: var(--text-muted);
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    margin-top: 120px;
+    width:1200px;
+    max-width:95%;
+    margin:80px auto;
+    min-height:80vh;
+}
+
+.s-container {
+    padding:30px;
+    border-radius:20px;
+    border:1px solid rgba(135,0,0,0.4);
+    background:rgba(15,15,15,0.9);
+    box-shadow:0 0 30px rgba(139,0,0,0.2), inset 0 0 20px rgba(139,0,0,0.1);
+    backdrop-filter:blur(10px);
+}
+
+#progressbar {
+    height:12px;
+    background-color:#222;
+    border-radius:50px;
+    overflow:hidden;
+    background:#1a1a1a;
+}
+
+#progress{
+    height:100%;
+    width:60%;
+    background:linear-gradient(90deg,#550000,#8b0000,#d10000);
+    box-shadow:0 0 20px #8b0000;
+    border-radius:50px;
+}
+
+input {
+    width:100%;
+    padding:15px;
+    background: rgba(20,20,20,0.9);
+    color: white;
+    border:1px solid #500000;
+    border-radius:12px;
+    font-family: "cinzel", serif;
+    height:55px;
+    font-size:18p;
+}
+
+input:focus{
+    outline:none;
+    border-color:#b30000;
+    box-shadow: 0 0 20px rgba(179,0,0,0.5);
+}
+
+button{
+    background-color:var(--blood-red);
+    color:white;
+    border:none;
+}
+
+button:hover{
+    background-color:var(--blood-red-hover);
+    box-shadow: 0 0 15px rgba(179,0,0,0.5);
+}
+
+h1{
+    color: #b30000;
+    text-shadow:0 0 5px rgba(179,0,0,0.5), 0 0 15px rgba(139,0,0,0.3);
+}
+
+.task-list li{
+    background-color:var(--card);
+    border-left:4px solid var(--blood-red);
+    color:var(--text)
+}
+
+.task-list li:hover{
+    background-color:#222;
+}
+
+form{
+    width:80%;
+    margin-top:25px;
+}
