@@ -37,6 +37,12 @@ const updatestats = () => {
     const progressBar = document.getElementById("progress");
     progressBar.style.width = `${progress}%`;
     document.getElementById('numbers').innerText = `${completedTasks} / ${totalTasks}`;
+    if(totalTasks > 0 && completedTasks === totalTasks){
+        end();
+        setTimeout(() =>{
+            alert("⚔ All Missions Completed, Assassin!");
+        }, 500);
+    }
 };
 
 const togglemissonkcomplete = (index) => {
@@ -88,3 +94,18 @@ document.addEventListener("DOMContentLoaded", () => {
         updatestats();
     }
 });
+
+function end() {
+    confetti({
+        particleCount:50,
+        spread:50,
+        origin: { y:0.6 },
+        gravity:0.4,
+        colors: [
+            '#1a1a1a',
+            '#2f2f2f',
+            '#444444',
+            '#8b0000'
+        ]
+    });
+}
