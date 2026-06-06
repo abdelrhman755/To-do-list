@@ -234,3 +234,72 @@ form{
     gap:25px;
     margin-top:10px;
 }
+
+.taskitem {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(20,20,20,0.95);
+    border-left:5px solid #8b0000;
+    padding:18px 20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(139,0,0,0.15), inset 0 0 10px rgba(139,0,0,0.05);
+    transition:0.3s;
+}
+
+.taskitem:hover{
+    transform:translateX(8px);
+    border-left-color:#d10000;
+    box-shadow: 0 0 20px rgba(139,0,0,0.4), inset 0 0 15px rgba(139,0,0,0.1);
+}
+
+.task {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#f0f0f0;
+    font-size:18px;
+}
+
+.checkbox {
+    width:22px;
+    height:22px;
+    accent-color:#8b0000;
+    cursor:pointer;
+}
+
+.completed p{
+    color:#666;
+    text-decoration:line-through;
+    text-shadow:none;
+    font-family: "cinzel", serif;
+}
+
+.icons {
+    display:flex;
+    gap:18px;
+}
+
+.icons i {
+    color:#8b0000;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.fa-pen:hover{
+    color:#ffae00;
+    transform:scale(1.2);
+}
+
+.fa-trash:hover{
+    color:#ff0000;
+    transform:scale(1.2);
+}
+
+.task-list{
+    width:80%;
+    margin-top:30px;
+    list-style:none;
+}
