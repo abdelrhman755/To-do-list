@@ -8,6 +8,7 @@ const addtask = ()=>{
         taskinput.value = '';
         updatetaskslist();
         updatestats();
+        savetasks ();
     }
 };
 
@@ -15,6 +16,7 @@ const deleteTask = (index) => {
     tasks.splice(index, 1);
     updatetaskslist();
     updatestats();
+    savetasks ();
 }
 
 
@@ -24,6 +26,7 @@ const editTask = (index) => {
     tasks.splice(index, 1);
     updatetaskslist();
     updatestats();
+    savetasks ();
 }
 
 
@@ -40,6 +43,7 @@ const togglemissonkcomplete = (index) => {
     tasks[index].completed = !tasks[index].completed;
     updatetaskslist();
     updatestats();
+    savetasks ();
 }
 
 const updatetaskslist = () => {
@@ -70,4 +74,17 @@ const updatetaskslist = () => {
 document.getElementById('newtask').addEventListener('click', function(e){
     e.preventDefault();
     addtask();
+});
+
+const savetasks = ()=> {
+    localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if(storedTasks){
+        storedTasks.forEach((task)=> tasks.push(task));
+        updatetaskslist();
+        updatestats();
+    }
 });
