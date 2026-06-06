@@ -6,26 +6,40 @@ const addtask = ()=>{
     if (text) {
         tasks.push({text:text, completed: false });
         taskinput.value = '';
-        updatetaskslist()
+        updatetaskslist();
+        updatestats();
     }
 };
 
 const deleteTask = (index) => {
     tasks.splice(index, 1);
     updatetaskslist();
+    updatestats();
 }
 
 
 const editTask = (index) => {
-    const taskInput = document.getElementById('taskinput');
-    taskinput.value = tasks[index].text;
+    const taskInput = document.getElementById('taskinput'); 
+    taskInput.value = tasks[index].text;
     tasks.splice(index, 1);
     updatetaskslist();
+    updatestats();
 }
+
+
+const updatestats = () => {
+    const completedTasks = tasks.filter((task) => task.completed).length;
+    const totalTasks = tasks.length;
+    const progress = (completedTasks / totalTasks) * 100;
+    const progressBar = document.getElementById("progress");
+    progressBar.style.width = `${progress}%`;
+    document.getElementById('numbers').innerText = `${completedTasks} / ${totalTasks}`;
+};
 
 const togglemissonkcomplete = (index) => {
     tasks[index].completed = !tasks[index].completed;
     updatetaskslist();
+    updatestats();
 }
 
 const updatetaskslist = () => {
@@ -49,7 +63,7 @@ const updatetaskslist = () => {
         `;
 
         tasklist.append(listitem);
-        listitem.addEventListener('change', () => togglemissonkcomplete(index) )
+        listitem.addEventListener('change', () => togglemissonkcomplete(index) );
     })
 }
 

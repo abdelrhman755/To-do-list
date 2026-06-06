@@ -134,10 +134,11 @@ h1{
 
 #progress{
     height:100%;
-    width:60%;
+    width:0%;
     background:linear-gradient(90deg,#550000,#8b0000,#d10000);
     box-shadow:0 0 20px #8b0000;
     border-radius:50px;
+    transition: width 0.3s ease;
 }
 
 input {
