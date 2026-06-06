@@ -10,6 +10,24 @@ const addtask = ()=>{
     }
 };
 
+const deleteTask = (index) => {
+    tasks.splice(index, 1);
+    updatetaskslist();
+}
+
+
+const editTask = (index) => {
+    const taskInput = document.getElementById('taskinput');
+    taskinput.value = tasks[index].text;
+    tasks.splice(index, 1);
+    updatetaskslist();
+}
+
+const togglemissonkcomplete = (index) => {
+    tasks[index].completed = !tasks[index].completed;
+    updatetaskslist();
+}
+
 const updatetaskslist = () => {
     const tasklist = document.getElementById('task-list');
     tasklist.innerHTML = '';
@@ -31,7 +49,7 @@ const updatetaskslist = () => {
         `;
 
         tasklist.append(listitem);
-        listitem.addEventListener('change', () => toggleMissonComplete(index) )
+        listitem.addEventListener('change', () => togglemissonkcomplete(index) )
     })
 }
 

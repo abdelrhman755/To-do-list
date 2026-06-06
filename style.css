@@ -303,3 +303,38 @@ form{
     margin-top:30px;
     list-style:none;
 }
+
+.completed p{
+    text-decoration:line-through;
+    text-decoration-color:#b30000 ;
+    text-decoration-thickness:3px;
+    color:#666;
+    text-shadow: 0 0 8px rgba(179,0,0,0.5);
+}
+
+.completed{
+    position:relative;
+}
+
+.completed::after{
+    content:"ELIMINATED";
+    position:absolute;
+    top:-10px;
+    right:20px;
+    color:#ffae00;
+    border:2px solid rgba(179,0,0,0.8);
+    padding:4px 10px;
+    font-size:12px;
+    letter-spacing:2px;
+    transform:rotate(-12deg);
+}
+
+.completed{
+    background:rgba(10,10,10,0.8);
+    border-left:4px solid #555;
+    opacity:0.75;
+}
+
+.completed .checkbox{
+    filter:drop-shadow(0 0 8px #00aa00);
+}
